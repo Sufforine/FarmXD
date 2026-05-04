@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b7de8stkulfvb"]
+
+[ext_resource type="Texture2D" uid="uid://bcxjexeduh51b" path="res://assets/SwampLand.png" id="1_rcidk"]
+[ext_resource type="PackedScene" uid="uid://b0c6p8ki23e7o" path="res://scenes/CharBody.tscn" id="2_duawh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rcidk"]
+size = Vector3(75, 5, 75)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_duawh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x5ix6"]
+albedo_texture = ExtResource("1_rcidk")
+
+[node name="Node3D" type="Node3D" unique_id=1052484105]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=470645028]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 29, 0)
+light_color = Color(0.13467366, 0.76654994, 0.7763345, 1)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=889371437]
+transform = Transform3D(1, 0, 0, 0, 0.9999997, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1953757957]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.500001, 0)
+shape = SubResource("BoxShape3D_rcidk")
+
+[node name="Ground" type="MeshInstance3D" parent="StaticBody3D" unique_id=1211138264]
+transform = Transform3D(34.204952, 0, 0, 0, 1.6801833, 0, 0, 0, 30.984356, 0, 0, 0)
+mesh = SubResource("PlaneMesh_duawh")
+surface_material_override/0 = SubResource("StandardMaterial3D_x5ix6")
+
+[node name="Player" parent="." unique_id=1070723894 instance=ExtResource("2_duawh")]

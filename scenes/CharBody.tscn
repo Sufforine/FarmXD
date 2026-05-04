@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://b0c6p8ki23e7o"]
+
+[ext_resource type="Script" uid="uid://bcj8pvnqkprlu" path="res://scripts/character_body_3d.gd" id="1_lskc6"]
+[ext_resource type="Texture2D" uid="uid://bmm5u6uvilfjx" path="res://assets/animated/B_witch_idle.png" id="2_jqo6b"]
+[ext_resource type="Texture2D" uid="uid://djutc0kxpjsns" path="res://assets/animated/B_witch_run.png" id="3_nfwpp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fd5us"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lskc6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfwpp"]
+atlas = ExtResource("2_jqo6b")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0ti2"]
+atlas = ExtResource("2_jqo6b")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xomgc"]
+atlas = ExtResource("2_jqo6b")
+region = Rect2(0, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh5bd"]
+atlas = ExtResource("2_jqo6b")
+region = Rect2(0, 144, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyt4k"]
+atlas = ExtResource("2_jqo6b")
+region = Rect2(0, 192, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7l47"]
+atlas = ExtResource("2_jqo6b")
+region = Rect2(0, 240, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddjh0"]
+atlas = ExtResource("3_nfwpp")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_verqh"]
+atlas = ExtResource("3_nfwpp")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxveh"]
+atlas = ExtResource("3_nfwpp")
+region = Rect2(0, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8edc8"]
+atlas = ExtResource("3_nfwpp")
+region = Rect2(0, 144, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0ixa"]
+atlas = ExtResource("3_nfwpp")
+region = Rect2(0, 192, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivod1"]
+atlas = ExtResource("3_nfwpp")
+region = Rect2(0, 240, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4lis"]
+atlas = ExtResource("3_nfwpp")
+region = Rect2(0, 288, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mebj"]
+atlas = ExtResource("3_nfwpp")
+region = Rect2(0, 336, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ddjh0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfwpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0ti2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xomgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh5bd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyt4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7l47")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddjh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_verqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxveh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8edc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0ixa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivod1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4lis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mebj")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="Player" type="Node3D" unique_id=1070723894]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=920996888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_lskc6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=294779808]
+shape = SubResource("CapsuleShape3D_fd5us")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1162509515]
+visible = false
+mesh = SubResource("CapsuleMesh_lskc6")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=41952347]
+transform = Transform3D(1, 0, 0, 0, 0.50000006, 0.8660254, 0, -0.8660254, 0.50000006, 0, 6, 3)
+current = true
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D" unique_id=1348899828]
+pixel_size = 0.05
+billboard = 1
+texture_filter = 4
+sprite_frames = SubResource("SpriteFrames_ddjh0")
+animation = &"run"
+autoplay = "idle"
